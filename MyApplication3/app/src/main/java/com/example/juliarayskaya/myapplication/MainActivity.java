@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 Cursor cursor = mDb.rawQuery("SELECT * FROM news1", null);
                 cursor.moveToFirst();
                 while (!cursor.isAfterLast()) {
-                    product += cursor.getString(1) + " | ";
+                    product += cursor.getString(1) + ": " + cursor.getString(2) + "\n";
                     cursor.moveToNext();
                 }
                 cursor.close();
