@@ -18,7 +18,7 @@
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Выбранные новости"
+    android:text="Congratulations! Continue tapping"
     android:id="@+id/textView"
     android:layout_gravity="center_horizontal"
     android:layout_centerVertical="true"
@@ -29,7 +29,7 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Вернуться на главную">
+        android:text="Return">
     </Button>
 </LinearLayout>
     </LinearLayout>

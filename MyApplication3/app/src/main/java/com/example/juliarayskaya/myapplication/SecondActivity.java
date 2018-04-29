@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import java.security.Key;
 
-import static com.example.juliarayskaya.myapplication.R.id.btnShowNews;
+import static com.example.juliarayskaya.myapplication.R.id.btnCancel;
 
 public class SecondActivity extends AppCompatActivity {
     Button btnReturn;
