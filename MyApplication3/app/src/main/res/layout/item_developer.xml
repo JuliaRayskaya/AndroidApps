@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/developer_item_height">
+
+    <ImageView
+        android:id="@+id/item_developer_image"
+        android:layout_width="@dimen/developer_item_image_size"
+        android:layout_height="@dimen/developer_item_image_size"
+        android:layout_alignParentStart="true"
+        android:layout_margin="@dimen/developer_item_image_margin"
+        android:scaleType="centerCrop"
+        android:src="@drawable/artur"
+        tools:ignore="ContentDescription"/>
+
+    <TextView
+        android:id="@+id/item_developer_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/developer_item_name_margin_start"
+        android:layout_toEndOf="@+id/item_developer_image"
+        android:textSize="@dimen/developer_item_name_text_size"
+        tools:ignore="RelativeOverlap"
+        tools:text="Artur Vasilov"/>
+
+    <ImageView
+        android:id="@+id/item_developer_lecturer"
+        android:layout_width="@dimen/developer_item_lecturer_image_size"
+        android:layout_height="@dimen/developer_item_lecturer_image_size"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/developer_item_lecturer_image_margin_end"
+        android:scaleType="centerCrop"
+        android:src="@drawable/lecturer"
+        android:visibility="gone"/>
+
+</RelativeLayout>

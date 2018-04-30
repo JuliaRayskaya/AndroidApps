@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     TextView mainLabel;
     TextView news;
     Button btnShowNews;
+    Button btnCancel;
 
     //Переменная для работы с БД
     private DatabaseHelper mDBHelper;
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         mainLabel = (TextView) findViewById(R.id.mainLabel);
         btnShowNews = (Button) findViewById(R.id.btnShowNews);
         news = (TextView) findViewById(R.id.news);
+        btnCancel = (Button) findViewById(R.id.btnCancel);
+
 
         btnShowNews.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,16 +69,20 @@ public class MainActivity extends AppCompatActivity {
                 news.setText(product);
             }
 
-            ;
-            OnClickListener oclBtnCancel = new OnClickListener() {
-                @Override
-                public void onClick(View v) {
 
-                    Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                    startActivity(intent);
-                }
-            };
         });
+
+        btnCancel.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                startActivity(intent);
+            }
+
+        });
+
+
     }
 }
 
