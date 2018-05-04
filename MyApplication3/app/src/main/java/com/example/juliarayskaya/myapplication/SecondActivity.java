@@ -44,7 +44,7 @@ public class SecondActivity extends AppCompatActivity {
         }
 
         userList = new ArrayList<>();
-        Cursor cursor = mDb.rawQuery("SELECT  * FROM news2", null);
+        Cursor cursor = mDb.rawQuery("SELECT  * FROM news1", null);
         try {
             if (cursor.moveToFirst()) {
                 do {
