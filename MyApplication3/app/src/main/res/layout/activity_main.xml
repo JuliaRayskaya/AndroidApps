@@ -27,20 +27,5 @@
             android:layout_gravity="center_horizontal"
             android:text="Показать новости">
         </Button>
-        <Button
-            android:id="@+id/btnCancel"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Перейти ко 2 активити">
-        </Button>
-        <TextView
-            android:id="@+id/news"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="50dp"
-            android:text="News">
-        </TextView>
     </LinearLayout>
 </LinearLayout>
