@@ -14,9 +14,6 @@ public class MainActivity extends AppCompatActivity {
     Button btnShowNews;
 
 
-    /**
-     * Called when the activity is first created.
-     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

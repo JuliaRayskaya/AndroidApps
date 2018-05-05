@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- item_developer.xml -->
-    <dimen name="developer_item_height">108dp</dimen>
-    <dimen name="developer_item_image_size">100dp</dimen>
-    <dimen name="developer_item_image_margin">4dp</dimen>
-    <dimen name="developer_item_name_margin_start">16dp</dimen>
-    <dimen name="developer_item_lecturer_image_size">80dp</dimen>
-    <dimen name="developer_item_lecturer_image_margin_end">16dp</dimen>
-    <dimen name="developer_item_name_text_size">20sp</dimen>
+    <!-- item_news.xml -->
+    <dimen name="news_item_height">108dp</dimen>
+    <dimen name="news_item_image_size">100dp</dimen>
+    <dimen name="news_item_image_margin">4dp</dimen>
+    <dimen name="news_item_header_margin_start">16dp</dimen>
+    <dimen name="news_item_header_text_size">20sp</dimen>
+    <dimen name="news_item_text_margin_start">16dp</dimen>
+    <dimen name="news_item_text_text_size">20sp</dimen>
 </resources>
