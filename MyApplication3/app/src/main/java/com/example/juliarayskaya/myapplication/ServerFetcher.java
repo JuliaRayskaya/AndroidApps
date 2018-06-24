@@ -19,6 +19,9 @@ import okhttp3.Response;
 public class ServerFetcher {
     private final static String TAG = "ServerFetcher";
 
+    static String string = FeedListActivity.getInstance().generateChecked().toString();
+    static String res = string.substring(1, string.length() - 1);
+
 
     public static String getJSONString(String UrlSpec) throws Exception {
 
@@ -26,12 +29,13 @@ public class ServerFetcher {
 
         String url = "85.143.216.172";
 
+
         HttpUrl httpUrl = new HttpUrl.Builder()
                 .scheme("http")
                 .host(url)
                 .port(8080)
                 .addPathSegment("choose")
-                .addQueryParameter("chosen", "1")
+                .addQueryParameter("chosen", res)
                 //.addQueryParameter("filters", "trump")
                 //.addQueryParameter("search", "football")
                 .build();
@@ -51,7 +55,7 @@ public class ServerFetcher {
             String url = Uri.parse("http://85.143.216.172:8080")
                     .buildUpon()
                     .appendPath("choose")
-                    .appendQueryParameter("chosen","1")
+                    .appendQueryParameter("chosen",res)
                     //.appendQueryParameter("filters","trump")
                     //.appendQueryParameter("search", "football")
                     .appendQueryParameter("nojsoncallback", "1")

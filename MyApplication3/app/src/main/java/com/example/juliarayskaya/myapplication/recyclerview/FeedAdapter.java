@@ -13,19 +13,15 @@ import com.example.juliarayskaya.myapplication.FeedItem;
 import com.example.juliarayskaya.myapplication.R;
 import com.squareup.picasso.Picasso;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.ArrayList;
 
 public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedHolder> {
 
-    private final List<FeedItem> feedItems;
-    final boolean[] checkedArr;
+    public ArrayList<FeedItem> feedItems;
 
-    public FeedAdapter(List<FeedItem> feedItems) {
+
+    public FeedAdapter(ArrayList<FeedItem> feedItems) {
         this.feedItems = feedItems;
-        checkedArr = new boolean[feedItems.size()];
-        // Filling all the items as unchecked by default
-        Arrays.fill(checkedArr, true);
     }
 
     @NonNull
@@ -44,11 +40,9 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedHolder> {
 
         Picasso.get().load(item.getImage()).into(holder.image);
         holder.name.setText(item.getName());
-        if (item.checkboxMarked()) {
-            holder.checkBox.setChecked(checkedArr[holder.getAdapterPosition()]);
-        } else {
-            holder.checkBox.setChecked(false);
-        }
+        holder.checkBox.setChecked(false);
+        item.setCheckBoxMarked(false);
+
     }
 
     @Override
@@ -56,7 +50,18 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedHolder> {
         return feedItems.size();
     }
 
-    static class FeedHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public FeedItem getItem(int position) {
+        return feedItems.get(position);
+    }
+
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+
+    class FeedHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public final ImageView image;
         public final TextView name;
@@ -69,11 +74,38 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedHolder> {
             checkBox = itemView.findViewById(R.id.checkbox);
             itemView.setClickable(true);
             itemView.setOnClickListener(this);
+            addListenerOnChkbx();
         }
+
+        public void addListenerOnChkbx() {
+
+            checkBox.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    if (checkBox.isChecked()) {
+                        checkBox.setChecked(true);
+                        getItem(getAdapterPosition()).setCheckBoxMarked(true);
+                    } else {
+                        checkBox.setChecked(false);
+                        getItem(getAdapterPosition()).setCheckBoxMarked(false);
+                    }
+                }
+            });
+        }
+
         @Override
         public void onClick(View v) {
-            checkBox.setChecked(true);
-    }
+            if(checkBox.isChecked()){
+                checkBox.setChecked(false);
+                getItem(getAdapterPosition()).setCheckBoxMarked(false);
+            }
+            else {
+                checkBox.setChecked(true);
+                getItem(getAdapterPosition()).setCheckBoxMarked(true);
+            }
+
+        }
     }
 }
 
