@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -23,10 +24,20 @@ public class ServerFetcher {
 
         OkHttpClient client = new OkHttpClient();
 
-        String url = "http://85.143.216.172:8080/all";
+        String url = "85.143.216.172";
+
+        HttpUrl httpUrl = new HttpUrl.Builder()
+                .scheme("http")
+                .host(url)
+                .port(8080)
+                .addPathSegment("choose")
+                .addQueryParameter("chosen", "1")
+                //.addQueryParameter("filters", "trump")
+                //.addQueryParameter("search", "football")
+                .build();
 
         Request request = new Request.Builder()
-                .url(url)
+                .url(httpUrl)
                 .build();
 
         Response response = client.newCall(request).execute();
@@ -37,9 +48,12 @@ public class ServerFetcher {
     public static List<NewsItem> newsItems(){
         List<NewsItem> newsItems = new ArrayList<>();
         try{
-            String url = Uri.parse("http://85.143.216.172:8080/all")
+            String url = Uri.parse("http://85.143.216.172:8080")
                     .buildUpon()
-                    .appendQueryParameter("format", "json")
+                    .appendPath("choose")
+                    .appendQueryParameter("chosen","1")
+                    //.appendQueryParameter("filters","trump")
+                    //.appendQueryParameter("search", "football")
                     .appendQueryParameter("nojsoncallback", "1")
                     .build().toString();
             String jsonString = getJSONString(url);

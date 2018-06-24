@@ -22,6 +22,9 @@
     <string name="exclude_filter_key" translatable="false">excludeFilter</string>
     <string name="exclude_filter_title">Exclude filter</string>
 
+    <string name="pref_default_search_words" translatable="false"></string>
+    <string name="search_words_key" translatable="false">searchFilter</string>
+    <string name="search_words_title">Search</string>
 
     <!--Details layout-->
     <string name="dummy_title" translatable="false">Title</string>

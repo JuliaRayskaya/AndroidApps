@@ -2,6 +2,11 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <EditTextPreference
+        android:defaultValue="@string/pref_default_search_words"
+        android:key="@string/search_words_key"
+        android:title="@string/search_words_title"/>
+
+    <EditTextPreference
         android:defaultValue="@string/pref_default_exclude_filter"
         android:key="@string/exclude_filter_key"
         android:title="@string/exclude_filter_title"/>

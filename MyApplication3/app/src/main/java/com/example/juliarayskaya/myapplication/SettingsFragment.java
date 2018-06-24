@@ -16,20 +16,29 @@ public class SettingsFragment extends PreferenceFragmentCompat
 
         SharedPreferences sharedPreferences = getPreferenceScreen().getSharedPreferences();
 
-        Preference excludeFilter = getPreferenceScreen().getPreference(0);
+        Preference excludeFilter = getPreferenceScreen().getPreference(1);
         String valueFilter = sharedPreferences.getString(excludeFilter.getKey(), getString(R.string.pref_default_exclude_filter));
         excludeFilter.setSummary(valueFilter);
+
+        Preference searchWords = getPreferenceScreen().getPreference(0);
+        String valueSearchWords = sharedPreferences.getString(searchWords.getKey(), getString(R.string.pref_default_search_words));
+        searchWords.setSummary(valueSearchWords);
 
     }
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        Preference workTime = findPreference(key);
-        if (workTime != null){
-            String valueWorkTime = sharedPreferences.getString(key,getString(R.string.pref_default_exclude_filter));
-            workTime.setSummary(valueWorkTime);
+        Preference excludeFilter = findPreference(key);
+        if (excludeFilter != null){
+            String valueExclude = sharedPreferences.getString(key,getString(R.string.pref_default_exclude_filter));
+            excludeFilter.setSummary(valueExclude);
         }
 
+        Preference searchWords = findPreference(key);
+        if (searchWords != null) {
+            String valueSearchWords = sharedPreferences.getString(key, getString(R.string.pref_default_search_words));
+            searchWords.setSummary(valueSearchWords);
+        }
     }
 
     @Override

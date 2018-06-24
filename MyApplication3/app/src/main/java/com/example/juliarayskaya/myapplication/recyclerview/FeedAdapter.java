@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,14 +13,19 @@ import com.example.juliarayskaya.myapplication.FeedItem;
 import com.example.juliarayskaya.myapplication.R;
 import com.squareup.picasso.Picasso;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedHolder> {
 
     private final List<FeedItem> feedItems;
+    final boolean[] checkedArr;
 
     public FeedAdapter(List<FeedItem> feedItems) {
         this.feedItems = feedItems;
+        checkedArr = new boolean[feedItems.size()];
+        // Filling all the items as unchecked by default
+        Arrays.fill(checkedArr, true);
     }
 
     @NonNull
@@ -37,8 +43,12 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedHolder> {
         FeedItem item = feedItems.get(position);
 
         Picasso.get().load(item.getImage()).into(holder.image);
-        holder.header.setText(item.getHeader());
-        holder.text.setText(item.getText());
+        holder.name.setText(item.getName());
+        if (item.checkboxMarked()) {
+            holder.checkBox.setChecked(checkedArr[holder.getAdapterPosition()]);
+        } else {
+            holder.checkBox.setChecked(false);
+        }
     }
 
     @Override
@@ -46,18 +56,24 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedHolder> {
         return feedItems.size();
     }
 
-    static class FeedHolder extends RecyclerView.ViewHolder {
+    static class FeedHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public final ImageView image;
-        public final TextView header;
-        public final TextView text;
+        public final TextView name;
+        public final CheckBox checkBox;
 
         public FeedHolder(View itemView) {
             super(itemView);
-            image = itemView.findViewById(R.id.item_news_image);
-            header = itemView.findViewById(R.id.item_news_header);
-            text = itemView.findViewById(R.id.item_news_text);
+            image = itemView.findViewById(R.id.item_feed_image);
+            name = itemView.findViewById(R.id.item_feed_header);
+            checkBox = itemView.findViewById(R.id.checkbox);
+            itemView.setClickable(true);
+            itemView.setOnClickListener(this);
         }
+        @Override
+        public void onClick(View v) {
+            checkBox.setChecked(true);
+    }
     }
 }
 

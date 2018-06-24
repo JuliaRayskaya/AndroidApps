@@ -1,20 +1,18 @@
 package com.example.juliarayskaya.myapplication;
 
 public class FeedItem {
+    private final boolean checkboxMarked;
+    private String name;
     private String image;
-    private String header;
-    private String text;
 
-
-    public String getImage() {
-        return image;
+    public FeedItem(boolean checkboxMarked, String name, String image) {
+        this.checkboxMarked = checkboxMarked;
+        this.name = name;
+        this.image = image;
     }
-    public String getHeader() {
-        return header;
-    }
-    public String getText() { return text; }
 
-    public void setImage(String image){this.image = image;}
-    public void setHeader(String header){this.header = header;}
-    public void setText(String text){this.text = text;}
+    public boolean checkboxMarked() { return checkboxMarked;}
+    public String getImage() { return image; }
+    public String getName() { return name; }
+
 }
