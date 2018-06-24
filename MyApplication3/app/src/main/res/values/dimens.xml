@@ -3,9 +3,11 @@
     <!-- item_news.xml -->
     <dimen name="news_item_height">108dp</dimen>
     <dimen name="news_item_image_size">100dp</dimen>
+    <dimen name="welcomeImage_size">50dp</dimen>
     <dimen name="news_item_image_margin">4dp</dimen>
     <dimen name="news_item_header_margin_start">16dp</dimen>
     <dimen name="news_item_header_text_size">20sp</dimen>
     <dimen name="news_item_text_margin_start">16dp</dimen>
     <dimen name="news_item_text_text_size">20sp</dimen>
+    <dimen name="button_height">100dp</dimen>
 </resources>

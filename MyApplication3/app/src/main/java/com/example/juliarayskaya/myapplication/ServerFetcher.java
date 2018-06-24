@@ -23,7 +23,7 @@ public class ServerFetcher {
 
         OkHttpClient client = new OkHttpClient();
 
-        String url = "http://192.168.2.3:8080/demo/all";
+        String url = "http://85.143.216.172:8080/all";
 
         Request request = new Request.Builder()
                 .url(url)
@@ -37,7 +37,7 @@ public class ServerFetcher {
     public static List<NewsItem> newsItems(){
         List<NewsItem> newsItems = new ArrayList<>();
         try{
-            String url = Uri.parse("http://192.168.2.3:8080/demo/all")
+            String url = Uri.parse("http://85.143.216.172:8080/all")
                     .buildUpon()
                     .appendQueryParameter("format", "json")
                     .appendQueryParameter("nojsoncallback", "1")
@@ -48,9 +48,10 @@ public class ServerFetcher {
             for (int i = 0; i < news.length(); i++){
                 JSONObject e = news.getJSONObject(i);
                 NewsItem parseNewsItem = new NewsItem();
-                parseNewsItem.setImage(e.getString("id"));
-                parseNewsItem.setHeader(e.getString("name"));
-                parseNewsItem.setText(e.getString("email"));
+                parseNewsItem.setImage(e.getString("media"));
+                parseNewsItem.setHeader(e.getString("title"));
+                parseNewsItem.setText(e.getString("description"));
+                parseNewsItem.setContent(e.getString("content"));
                 newsItems.add(parseNewsItem);
             }
 

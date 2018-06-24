@@ -1,3 +1,30 @@
 <resources>
-    <string name="app_name">News</string>
+    <string name="app_name">Paju</string>
+    <string name="title_project">Title</string>
+    <string name="create_project">Create Project</string>
+    <string name="enter_title">Enter title...</string>
+    <string name="ok_button">Ok</string>
+    <string name="details_label">Detailed information</string>
+    <!--<string name="settings_label">Filters</string>-->
+    <string name="welcomeTitle">Welcome to Paju App!</string>
+    <string name="welcomeText">Use checkboxes to choose feed you want to read.</string>
+    <string name="welcomeText2">Pay attention to this icon in top right corner of the screen. Here you can set feed filters.</string>
+    <string name="contentTitle">Settings</string>
+    <string name="contentText">Settings</string>
+
+
+    <!--Menus-->
+    <string name="open_in_browser">Open in browser</string>
+    <string name="open_settings">Filters</string>
+
+    <!--Preferences-->
+    <string name="pref_default_exclude_filter" translatable="false">Tramp</string>
+    <string name="exclude_filter_key" translatable="false">excludeFilter</string>
+    <string name="exclude_filter_title">Exclude filter</string>
+
+
+    <!--Details layout-->
+    <string name="dummy_title" translatable="false">Title</string>
+    <string name="dummy_date" translatable="false">Date</string>
+    <string name="dummy_text" translatable="false">Text</string>
 </resources>
