@@ -18,9 +18,12 @@ import okhttp3.Response;
 
 public class ServerFetcher {
     private final static String TAG = "ServerFetcher";
-
     static String string = FeedListActivity.getInstance().generateChecked().toString();
+    static String exclude = FeedListActivity.getInstance().getPreferredRSSFeed().toString();
+    static String search = FeedListActivity.getInstance().getPreferredRSSFeed2().toString();
     static String res = string.substring(1, string.length() - 1);
+    static String excl = exclude.substring(16, exclude.length() - 2);
+    static String find = search.substring(15, search.length() - 2);
 
 
     public static String getJSONString(String UrlSpec) throws Exception {
@@ -36,14 +39,17 @@ public class ServerFetcher {
                 .port(8080)
                 .addPathSegment("choose")
                 .addQueryParameter("chosen", res)
-                //.addQueryParameter("filters", "trump")
-                //.addQueryParameter("search", "football")
+                .addQueryParameter("filters", excl)
+                .addQueryParameter("search", find)
                 .build();
 
         Request request = new Request.Builder()
                 .url(httpUrl)
                 .build();
 
+        System.out.println(httpUrl.toString());
+        System.out.println(excl);
+        System.out.println(find);
         Response response = client.newCall(request).execute();
         String result = response.body().string();
         return result;
@@ -56,8 +62,8 @@ public class ServerFetcher {
                     .buildUpon()
                     .appendPath("choose")
                     .appendQueryParameter("chosen",res)
-                    //.appendQueryParameter("filters","trump")
-                    //.appendQueryParameter("search", "football")
+                    .appendQueryParameter("filters",excl)
+                    .appendQueryParameter("search",find)
                     .appendQueryParameter("nojsoncallback", "1")
                     .build().toString();
             String jsonString = getJSONString(url);
