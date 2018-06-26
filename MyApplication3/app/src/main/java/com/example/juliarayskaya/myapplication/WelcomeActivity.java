@@ -14,6 +14,7 @@ public class WelcomeActivity extends AppCompatActivity {
     TextView welcomeText;
     TextView welcomeText2;
     ImageView welcomeImage;
+    ImageView checkImage;
     Button btnShowFeed;
 
 
@@ -25,6 +26,7 @@ public class WelcomeActivity extends AppCompatActivity {
         // найдем View-элементы
         welcomeText = findViewById(R.id.welcomeText);
         welcomeImage = findViewById(R.id.welcomeImage);
+        checkImage = findViewById(R.id.check);
         welcomeText2 = findViewById(R.id.welcomeText2);
         btnShowFeed = findViewById(R.id.btnShowFeed);
 
