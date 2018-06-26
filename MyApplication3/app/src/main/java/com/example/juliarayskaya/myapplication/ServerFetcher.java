@@ -18,13 +18,24 @@ import okhttp3.Response;
 
 public class ServerFetcher {
     private final static String TAG = "ServerFetcher";
-    static String string = FeedListActivity.getInstance().generateChecked().toString();
-    static String exclude = FeedListActivity.getInstance().getPreferredRSSFeed().toString();
-    static String search = FeedListActivity.getInstance().getPreferredRSSFeed2().toString();
-    static String res = string.substring(1, string.length() - 1);
-    static String excl = exclude.substring(16, exclude.length() - 2);
-    static String find = search.substring(15, search.length() - 2);
 
+    public static String getExclude() {
+
+         String exclude = FeedListActivity.getInstance().getPreferredRSSFeed().toString();
+        return exclude.substring(16, exclude.length() - 2);
+    }
+
+    public static String getFind() {
+
+         String search = FeedListActivity.getInstance().getPreferredRSSFeed2().toString();
+        return search.substring(15, search.length() - 2);
+    }
+
+    public static String getRes() {
+
+        String string = FeedListActivity.getInstance().generateChecked().toString();
+        return string.substring(1, string.length() - 1);
+    }
 
     public static String getJSONString(String UrlSpec) throws Exception {
 
@@ -38,9 +49,9 @@ public class ServerFetcher {
                 .host(url)
                 .port(8080)
                 .addPathSegment("choose")
-                .addQueryParameter("chosen", res)
-                .addQueryParameter("filters", excl)
-                .addQueryParameter("search", find)
+                .addQueryParameter("chosen", getRes())
+                .addQueryParameter("filters", getExclude())
+                .addQueryParameter("search", getFind())
                 .build();
 
         Request request = new Request.Builder()
@@ -48,8 +59,8 @@ public class ServerFetcher {
                 .build();
 
         System.out.println(httpUrl.toString());
-        System.out.println(excl);
-        System.out.println(find);
+        System.out.println(getExclude());
+        System.out.println(getFind());
         Response response = client.newCall(request).execute();
         String result = response.body().string();
         return result;
@@ -61,9 +72,9 @@ public class ServerFetcher {
             String url = Uri.parse("http://85.143.216.172:8080")
                     .buildUpon()
                     .appendPath("choose")
-                    .appendQueryParameter("chosen",res)
-                    .appendQueryParameter("filters",excl)
-                    .appendQueryParameter("search",find)
+                    .appendQueryParameter("chosen",getRes())
+                    .appendQueryParameter("filters",getExclude())
+                    .appendQueryParameter("search",getFind())
                     .appendQueryParameter("nojsoncallback", "1")
                     .build().toString();
             String jsonString = getJSONString(url);

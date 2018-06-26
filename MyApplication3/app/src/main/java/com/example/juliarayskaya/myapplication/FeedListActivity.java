@@ -51,7 +51,11 @@ public class FeedListActivity extends AppCompatActivity implements
             }
 
         });
+
+
     }
+
+
     public static FeedListActivity getInstance() {
         return instance;
     }
@@ -115,6 +119,18 @@ public class FeedListActivity extends AppCompatActivity implements
         Log.i("IMPORTANT", "value:" + value2);
         return search;
     }
+/*
+    public Bundle getExclude() {
+        return new getPreferredRSSFeed();
+    }
+
+    public Bundle getSearch() {
+        return new getPreferredRSSFeed2();
+    }
+
+    public ArrayList<Long> getFeed() {
+        return new generateChecked();
+    }*/
 }
 
 
