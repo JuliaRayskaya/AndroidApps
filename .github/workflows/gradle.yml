@@ -31,5 +31,5 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: my-artifact
-        path: path/to/artifact/world.txt
+        path: ./MyApplication3/gradle
     
