@@ -26,3 +26,10 @@ jobs:
       run: chmod +x MyApplication3/gradlew
     - name: Build with Gradle
       run: MyApplication3/gradlew build
+    - name: du
+      run: du .
+    - uses: actions/upload-artifact@v2
+      with:
+        name: my-artifact
+        path: path/to/artifact/world.txt
+    
