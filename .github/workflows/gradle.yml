@@ -28,6 +28,7 @@ jobs:
       run: MyApplication3/gradlew build
     - name: du
       run: du .
+    - name: upload artifact
     - uses: actions/upload-artifact@v2
       with:
         name: my-artifact
